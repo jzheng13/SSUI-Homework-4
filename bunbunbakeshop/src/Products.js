@@ -40,23 +40,60 @@ class Products extends Component {
             productPic15];
     }
 
+    showModal(id) {
+    }
+
+    addToCart(id) {
+
+    }
+
     render() {
         return (
             <div id="app-products">
                 <div class="section">
                     <div class="navtree">
-                        <a href="index.html">Home</a> >
-                                <a id="current" href="products.html">Rolls</a>
+                        <a href="/">Home</a> >
+                                <a id="current" href="#">Rolls</a>
                     </div>
                     <div class="subpage">Rolls</div>
                 </div>
                 <div class="section">
                     <div class="flexbox flexwrap">
                         {this.rolls.map((i) =>
-                            <div class="flexitem" id="menuitem">
-                                <img width="250" height="175" src={this.pics[i.id]} alt="NA" />
-                                <span class="roll"><b>{i.name}</b><span>${i.price}</span></span>
-                                <p>{i.description}</p>
+                            <div class="flexitem menuitem">
+                                <a class="modal-trigger" href={"#modal" + i.id} onClick={this.showModal(i.id)}>
+                                    <img width="250" height="175" src={this.pics[i.id]} alt="NA" />
+                                    <span class="roll"><b>{i.name}</b><span>${i.price}</span></span>
+                                    <p>{i.description}</p>
+                                </a>
+                                <div id={"modal" + i.id} class="modal">
+                                    <div class="modal-content">
+                                        <div class="flexbox flexwrap">
+                                            <div class="flexitem menuitem">
+                                                <img width="250" height="175" src={this.pics[i.id]} alt="NA" />
+                                            </div>
+                                            <div class="flexitem" id="itemdes">
+                                                <div class="itemname">
+                                                    <span id="itemtoadd">{i.name}</span>
+                                                    <span class="fa fa-star rated"></span>
+                                                    <span class="fa fa-star rated"></span>
+                                                    <span class="fa fa-star rated"></span>
+                                                    <span class="fa fa-star rated"></span>
+                                                    <span class="fa fa-star rated"></span>
+                                                </div>
+                                                <p>{i.description}</p>
+                                                <div class="roll addcart">
+                                                    <span id="price">${i.price}</span>
+                                                    <form>
+                                                        <label for="qty">Quantity</label>
+                                                        <input type="number" defaultValue="1" id="qty" min="1" max="50" />
+                                                        <button type="button" onClick={this.addToCart(i.id)}>Add to cart</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             )}
                     </div>

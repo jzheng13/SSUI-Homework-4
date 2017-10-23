@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './Home';
 import Products from './Products';
 import Cart from './Cart';
+import Dropdown from './Dropdown';
 import './styles/index.css';
 import './styles/font-awesome.min.css'
 
@@ -10,7 +11,9 @@ class App extends Component {
         super(props);
         this.state = {
             page: 0,
+            showCart: false,
         };
+        this.changeState = this.changeState.bind(this);
     }
 
     renderPageView() {
@@ -22,24 +25,14 @@ class App extends Component {
             return <Cart />
     }
 
-    changeState(n) {
-        this.state.page = n;
-    }
-
-    showCart() {
-        /*TODO: document.getElementById("cart-contents").classList.toggle("show"); */
+    changeState(pn) {
+        this.setState({
+            page: pn
+        });
     }
 
     getCartItems() {
         return 0;
-    }
-
-    getCartPrice() {
-        return "0.00";
-    }
-
-    renderDropDownCart() {
-
     }
 
     render() {
@@ -52,25 +45,15 @@ class App extends Component {
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="text" name="search" placeholder="Search" />
                             </form>
-                            <div class="cart" onclick={this.showCart()}>
+                            <div class="cart" onClick={(ev) => this.setState({ showCart: !this.state.showCart })}>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span class="badge" id="cartitems" data-val={this.state.page}></span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="container">
-                    <div class="cart-contents" id="cart-contents">
-                        <div class="cardhead roll">
-                            <span>Total: </span><span id="cartprice">${this.getCartPrice()}</span>
-                        </div>
-                        <ul class="cartrolls" id="cartrolls">
-                            {this.renderDropDownCart()}
-                        </ul>
-                        <button type="button" onClick={(ev) => this.setState({ page: 2 })}>Go to cart</button>
-                    </div>
-                </div>
+                
+                {this.state.showCart ? <Dropdown changeState={this.changeState}/> : <div></div>}
 
                 <a href="index.html">
                     <div class="banner">
