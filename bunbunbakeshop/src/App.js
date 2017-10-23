@@ -15,19 +15,19 @@ class App extends Component {
 
     renderPageView() {
         if (this.state.page === 0)
-            return <Home />;
+            return <Home />
         if (this.state.page === 1)
-            return <Products />;
+            return <Products />
         if (this.state.page === 2)
-            return <Cart />;
+            return <Cart />
     }
 
-    doNothing() {
-        /*for debugging*/
+    changeState(n) {
+        this.state.page = n;
     }
 
     showCart() {
-
+        /*TODO: document.getElementById("cart-contents").classList.toggle("show"); */
     }
 
     getCartItems() {
@@ -52,9 +52,9 @@ class App extends Component {
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="text" name="search" placeholder="Search" />
                             </form>
-                            <div class="cart" onclick={this.showCart()} >
+                            <div class="cart" onclick={this.showCart()}>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="badge" id="cartitems" data-val={this.getCartItems()}></span>
+                                <span class="badge" id="cartitems" data-val={this.state.page}></span>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ class App extends Component {
                         <ul class="cartrolls" id="cartrolls">
                             {this.renderDropDownCart()}
                         </ul>
-                        <button type="button" onClick={this.doNothing()}>Go to cart</button>
+                        <button type="button" onClick={(ev) => this.setState({ page: 2 })}>Go to cart</button>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@ class App extends Component {
                             <div id="placeholder"></div>
                             <ul class="sidenav">
                                 <li><a href="#">&nbsp;&nbsp;About</a></li>
-                                <li><a href="#" onClick={this.doNothing()}>&nbsp;&nbsp;Rolls</a></li>
+                                <li><a href="#" onClick={(ev) => this.setState({ page: 1 })}>&nbsp;&nbsp;Rolls</a></li>
                                 <li><a href="#">&nbsp;&nbsp;Delivery</a></li>
                             </ul>
                             <div class="page-contents">
