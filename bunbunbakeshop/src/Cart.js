@@ -56,7 +56,7 @@ class Cart extends Component {
             <div id="app-cart">
                 <div class="section">
                     <div class="navtree">
-                        <a href="/">Home</a> >
+                        <a href="#" onClick={(ev) => this.props.changeState(0)}>Home</a> >
                             <a id="current" href="#">Cart</a>
                     </div>
                     <div class="subpage">Cart</div>

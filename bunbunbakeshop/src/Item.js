@@ -66,7 +66,7 @@ class Item extends Component {
             <div>
                 <div class="section">
                     <div class="navtree">
-                        <a href="/">Home</a> >
+                        <a href="#" onClick={(ev) => this.props.changeState(0)}>Home</a> >
                             <a href="#" onClick={(ev) => this.props.changeView(-1)}>Rolls</a> >
                             <a id="current" href="#">{this.rolls[this.item].name}</a>
                     </div>

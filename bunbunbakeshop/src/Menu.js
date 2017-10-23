@@ -45,7 +45,7 @@ class Menu extends Component {
             <div id="app-products">
                 <div class="section">
                     <div class="navtree">
-                        <a href="/">Home</a> >
+                        <a href="#" onClick={(ev) => this.props.changeState(0)}>Home</a> >
                                 <a id="current" href="#">Rolls</a>
                     </div>
                     <div class="subpage">Rolls</div>

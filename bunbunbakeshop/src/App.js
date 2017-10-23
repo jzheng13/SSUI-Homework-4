@@ -28,9 +28,9 @@ class App extends Component {
         if (this.state.page === 0)
             return <Home />
         if (this.state.page === 1)
-            return <Products updateCart={this.updateCart} />
+            return <Products updateCart={this.updateCart} changeState={this.changeState} />
         if (this.state.page === 2)
-            return <Cart getCartItems={this.getCartItems} getCartPrice={this.getCartPrice} updateCart={this.updateCart}/>
+            return <Cart changeState={this.changeState} getCartItems={this.getCartItems} getCartPrice={this.getCartPrice} updateCart={this.updateCart}/>
     }
 
     changeState(pn) {
