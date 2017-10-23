@@ -18,7 +18,8 @@ import productPic13 from './resources/images/default13.jpg';
 import productPic14 from './resources/images/default14.jpg';
 import productPic15 from './resources/images/default15.jpg';
 
-class Cart extends Component {
+
+class Item extends Component {
 
     constructor(props) {
         super(props);
@@ -38,57 +39,52 @@ class Cart extends Component {
             productPic13,
             productPic14,
             productPic15];
+        this.item = this.props.data;
+    }
+
+    addToCart(id) {
+
     }
 
     render() {
         return (
-            <div id="app-cart">
+            <div>
                 <div class="section">
                     <div class="navtree">
-                        <a href="index.html">Home</a> >
-                            <a id="current" href="cart.html">Cart</a>
+                        <a href="/">Home</a> >
+                            <a href="#" onClick={(ev) => this.props.changeView(-1)}>Rolls</a> >
+                            <a id="current" href="#">{this.rolls[this.item].name}</a>
                     </div>
-                    <div class="subpage">Cart</div>
-                </div>
-                <div class="section">
-                    <div id="cartlist" class="flexbox flexwrap">
-                        <div id="cartempty" class="flexitem" hidden>
-                            <span>There are no items in your cart.</span>
-                        </div>
+                    <div class="flexbox flexwrap">
                         <div class="flexitem" id="menuitem">
-                            <img width="200" height="140" src="resources/images/default1.jpg" alt="NA" />
+                            <img width="250" height="175" src={this.pics[this.rolls[this.item].id]} alt="NA" />
                         </div>
                         <div class="flexitem" id="itemdes">
-                            <div class="subsubheading">
-                                <span id="rolltype">Original</span>
+                            <div class="itemname">
+                                <span id="itemtoadd">{this.rolls[this.item].name}</span>
+                                <span class="fa fa-star rated"></span>
+                                <span class="fa fa-star rated"></span>
+                                <span class="fa fa-star rated"></span>
+                                <span class="fa fa-star rated"></span>
+                                <span class="fa fa-star rated"></span>
                             </div>
-                            <p>The classic.</p>
+                            <p>{this.rolls[this.item].description}</p>
                             <div class="roll addcart">
-                                <span id="subtotal">$3.00</span>
+                                <span id="price">${this.rolls[this.item].price}</span>
                                 <form>
                                     <label for="qty">Quantity</label>
-                                    <input type="number" id="qty" value="2" min="1" max="50" />
-                                    <button type="button" onclick="removeFromCart()">Remove</button>
+                                    <input type="number" value="1" id="qty" min="1" max="50" />
+                                    <button type="button" onClick={this.addToCart(this.rolls[this.item].id)}>Add to cart</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="break"></div>
                 <div class="section">
-                    <div class="container">
-                        <div class="roll">
-                            <div class="subsubheading">
-                                Total
-                                </div>
-                            <div class="subsubheading">
-                                <div id="totalprice">
-                                    $6.00
-                                    </div>
-                                <button> Checkout </button>
-                            </div>
-                        </div>
-                    </div>
+
+                </div>
+                <div class="section">
+
                 </div>
                 <div class="section">
                 </div>
@@ -97,4 +93,4 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+export default Item;

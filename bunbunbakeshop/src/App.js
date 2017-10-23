@@ -12,6 +12,7 @@ class App extends Component {
         this.state = {
             page: 0,
             showCart: false,
+            cartItems: 0,
         };
         this.changeState = this.changeState.bind(this);
     }
@@ -47,7 +48,7 @@ class App extends Component {
                             </form>
                             <div class="cart" onClick={(ev) => this.setState({ showCart: !this.state.showCart })}>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="badge" id="cartitems" data-val={this.state.page}></span>
+                                <span class="badge" id="cartitems" data-val={this.state.cartItems}></span>
                             </div>
                         </div>
                     </div>
