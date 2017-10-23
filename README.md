@@ -10,17 +10,23 @@ Link to website [here](https://jzheng13.github.io/SSUI-Homework-4/).
 
 Formatted write-up [here]().
 
-## Write Up
+## Reflections
 
-A. What​ ​things​ ​do​ ​you​ ​like​ ​about​ ​React’s​ ​syntax?​ ​What​ ​makes​ ​React​ ​easier​ ​to​ ​deal with​ ​than​ ​vanilla​ ​Javascript? 
+A. *What​ ​things​ ​do​ ​you​ ​like​ ​about​ ​React’s​ ​syntax?​ ​What​ ​makes​ ​React​ ​easier​ ​to​ ​deal with​ ​than​ ​vanilla​ ​Javascript?** 
 
-B. What​ ​makes​ ​React​ ​harder​ ​to​ ​use?​ ​What​ ​features​ ​of​ ​React​ ​still​ ​confuse​ ​you? 
+   React is component-based. This means that instead of writing the same lines of HTML code for similar elements, we can do refactoring by programmatically constructing the elements in React and render them. This also means that when we want to change the view of a single component, we do not have to change the code in several HTML pages but just the rendering function.
 
-C. What​ ​did​ ​you​ ​learn​ ​from​ ​this​ ​assignment?​ ​What​ ​was​ ​challenging? 
+B. *What​ ​makes​ ​React​ ​harder​ ​to​ ​use?​ ​What​ ​features​ ​of​ ​React​ ​still​ ​confuse​ ​you?*
 
-## Bonus Features
+   React is somewhat difficult to use since it has no fixed organisation and structure. This flexibility means that planning for web applications is harder, as it is difficult to envision what sort of organisation is best suitable, and changing the structure of the application is a hassle towards the latter stages of development.
 
+C. *What​ ​did​ ​you​ ​learn​ ​from​ ​this​ ​assignment?​ ​What​ ​was​ ​challenging?*
 
+   I learnt how to use the React JavaScript library. The challenging part was porting an already "functional" web application to a React project. 
+
+## Bonus Feature
+
+It was suggested that we put​ ​all​ ​product​ ​data​ ​in​ ​a​ ​JSON​ ​file​ and ​dynamically​ ​load information​ ​on​ ​our​ ​page​ ​to display​ ​products. This was implemented in our new build of Bun Bun Bake Shop's webpage. 
 
 ## Resources Used
 
