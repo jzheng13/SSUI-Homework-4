@@ -3,27 +3,34 @@ import Home from './Home';
 import Products from './Products';
 import Cart from './Cart';
 import Dropdown from './Dropdown';
+import products from './rolls.json';
 import './styles/index.css';
 import './styles/font-awesome.min.css'
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.rolls = products.rolls;
+        this.renderPageView = this.renderPageView.bind(this);
+        this.getCartItems = this.getCartItems.bind(this);
         this.state = {
             page: 0,
             showCart: false,
-            cartItems: 0,
+            cartItems: this.getCartItems(),
         };
         this.changeState = this.changeState.bind(this);
+        this.updateCart = this.updateCart.bind(this); 
+        this.displayCart = this.displayCart.bind(this);
+        this.getCartPrice = this.getCartPrice.bind(this);
     }
 
     renderPageView() {
         if (this.state.page === 0)
             return <Home />
         if (this.state.page === 1)
-            return <Products />
+            return <Products updateCart={this.updateCart} />
         if (this.state.page === 2)
-            return <Cart />
+            return <Cart getCartItems={this.getCartItems} getCartPrice={this.getCartPrice} updateCart={this.updateCart}/>
     }
 
     changeState(pn) {
@@ -32,8 +39,39 @@ class App extends Component {
         });
     }
 
+    displayCart(display) {
+        this.setState({
+            showCart: display 
+        });
+    }
+
     getCartItems() {
-        return 0;
+        var count = 0;
+        for (var i = 0; i < 15; i++) {
+            if (i in window.localStorage) {
+                if (window.localStorage.getItem(i) > 0) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    getCartPrice() {
+        var total = 0;
+        for (var i = 0; i < 15; i++) {
+            if (i in window.localStorage) {
+                var n = window.localStorage.getItem(i);
+                if (n > 0) {
+                    total += parseInt(n) * parseFloat(this.rolls[i].price);
+                }
+            }
+        }
+        return total;
+    }
+
+    updateCart() {
+        this.setState({ cartItems: this.getCartItems() });
     }
 
     render() {
@@ -46,7 +84,7 @@ class App extends Component {
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="text" name="search" placeholder="Search" />
                             </form>
-                            <div class="cart" onClick={(ev) => this.setState({ showCart: !this.state.showCart })}>
+                            <div class="cart" onMouseEnter={(ev) => this.setState({ showCart: true })} onMouseLeave={(ev) => this.setState({ showCart: false })}>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span class="badge" id="cartitems" data-val={this.state.cartItems}></span>
                             </div>
@@ -54,7 +92,7 @@ class App extends Component {
                     </div>
                 </div>
                 
-                {this.state.showCart ? <Dropdown changeState={this.changeState}/> : <div></div>}
+                {this.state.showCart ? <Dropdown getCartItems={this.getCartItems()} getCartPrice={this.getCartPrice()} displayCart={this.displayCart} changeState={this.changeState}/> : <div></div>}
 
                 <a href="index.html">
                     <div class="banner">

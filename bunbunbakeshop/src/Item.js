@@ -40,10 +40,25 @@ class Item extends Component {
             productPic14,
             productPic15];
         this.item = this.props.data;
+        this.state = {
+            qty: 1,
+        }
+        this.setQty = this.setQty.bind(this);
+        this.addToCart = this.addToCart.bind(this);
+    }
+
+    setQty(n) {
+        this.setState({qty: n});
     }
 
     addToCart(id) {
-
+        if (this.item in window.localStorage) {
+            var n = parseInt(this.state.qty) + parseInt(window.localStorage.getItem(id));
+            window.localStorage.setItem(id, n);
+        } else {
+            window.localStorage.setItem(id, parseInt(this.state.qty));
+        }
+        this.props.updateCart();
     }
 
     render() {
@@ -73,8 +88,8 @@ class Item extends Component {
                                 <span id="price">${this.rolls[this.item].price}</span>
                                 <form>
                                     <label for="qty">Quantity</label>
-                                    <input type="number" value="1" id="qty" min="1" max="50" />
-                                    <button type="button" onClick={this.addToCart(this.rolls[this.item].id)}>Add to cart</button>
+                                    <input type="number" defaultValue={this.state.qty} value={this.state.qty} id="qty" min="1" max="50" onChange={(ev) => this.setQty(ev.target.value)} />
+                                    <button type="button" onClick={(ev) => this.addToCart(this.rolls[this.item].id)}>Add to cart</button>
                                 </form>
                             </div>
                         </div>

@@ -38,6 +38,17 @@ class Cart extends Component {
             productPic13,
             productPic14,
             productPic15];
+        this.notNil = this.notNil.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
+    }
+
+    notNil(item) {
+        return (item.id in window.localStorage) && (window.localStorage.getItem(item.id) > 0);
+    }
+
+    removeFromCart(id) {
+        window.localStorage.setItem(id, 0);
+        this.props.updateCart();
     }
 
     render() {
@@ -45,33 +56,34 @@ class Cart extends Component {
             <div id="app-cart">
                 <div class="section">
                     <div class="navtree">
-                        <a href="index.html">Home</a> >
-                            <a id="current" href="cart.html">Cart</a>
+                        <a href="/">Home</a> >
+                            <a id="current" href="#">Cart</a>
                     </div>
                     <div class="subpage">Cart</div>
                 </div>
                 <div class="section">
-                    <div id="cartlist" class="flexbox flexwrap">
-                        <div id="cartempty" class="flexitem" hidden>
-                            <span>There are no items in your cart.</span>
-                        </div>
-                        <div class="flexitem" id="menuitem">
-                            <img width="200" height="140" src="resources/images/default1.jpg" alt="NA" />
-                        </div>
-                        <div class="flexitem" id="itemdes">
-                            <div class="subsubheading">
-                                <span id="rolltype">Original</span>
+                    <div id="cartlist">
+                        {this.rolls.filter(this.notNil).map((i) =>
+                            <div class="flexbox">
+                                <div class="flexitem" id="menuitem">
+                                    <img width="200" height="140" src={this.pics[i.id]} alt="NA" />
+                                </div>
+                                <div class="flexitem" id="itemdes">
+                                    <div class="subsubheading">
+                                        <span id="rolltype">{i.name}</span>
+                                    </div>
+                                    <p>{i.description}</p>
+                                    <div class="roll addcart">
+                                        <span id="subtotal">${i.price}</span>
+                                        <form>
+                                            <label for="qty">Quantity</label>
+                                            <input type="number" id="qty" value={window.localStorage.getItem(i.id)} min="1" max="50" />
+                                            <button type="button" onClick={(ev) => this.removeFromCart(i.id)}>Remove</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <p>The classic.</p>
-                            <div class="roll addcart">
-                                <span id="subtotal">$3.00</span>
-                                <form>
-                                    <label for="qty">Quantity</label>
-                                    <input type="number" id="qty" value="2" min="1" max="50" />
-                                    <button type="button" onclick="removeFromCart()">Remove</button>
-                                </form>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
                 <div class="break"></div>
@@ -83,7 +95,7 @@ class Cart extends Component {
                                 </div>
                             <div class="subsubheading">
                                 <div id="totalprice">
-                                    $6.00
+                                    ${this.props.getCartPrice()}
                                     </div>
                                 <button> Checkout </button>
                             </div>

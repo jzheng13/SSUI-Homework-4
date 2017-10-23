@@ -23,7 +23,7 @@ class Products extends Component {
     render() {
         return (
             <div>
-                {this.state.item < 0 ? <Menu changeView={this.changeView} /> : <Item data={this.state.item} changeView={this.changeView}/>}
+                {this.state.item < 0 ? <Menu changeView={this.changeView} /> : <Item data={this.state.item} changeView={this.changeView} updateCart={this.props.updateCart}/>}
             </div>
         );
     }
