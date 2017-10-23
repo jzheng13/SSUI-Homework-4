@@ -1,107 +1,109 @@
 {
-  "original": {
-    "id": "1",
-    "name": "Original",
-    "price": "3",
-    "description": "The classic."
-  },
+  "rolls": [
+    {
+      "id": "0",
+      "name": "Original",
+      "price": "3.00",
+      "description": "The classic."
+    },
 
-  "original_gf": {
-    "id": "2",
-    "name": "Original (Gluten-free)",
-    "price": "3.5",
-    "description": "The classic and gluten-free!"
-  },
+    {
+      "id": "1",
+      "name": "Original (Gluten-free)",
+      "price": "3.50",
+      "description": "The classic and gluten-free!"
+    },
 
-  "original_v": {
-    "id": "3",
-    "name": "Original (Vegan)",
-    "price": "3.5",
-    "description": "The classic for herbivores."
-  },
+    {
+      "id": "2",
+      "name": "Original (Vegan)",
+      "price": "3.50",
+      "description": "The classic for herbivores."
+    },
 
-  "map": {
-    "id": "4",
-    "name": "Maple Apple Pecan",
-    "price": "3.5",
-    "description": "With a touch of maple syrup, apple concentrate and pecan nuts."
-  },
+    {
+      "id": "3",
+      "name": "Maple Apple Pecan",
+      "price": "3.50",
+      "description": "With a touch of maple syrup, apple concentrate and pecan nuts."
+    },
 
-  "bacon": {
-    "id": "5",
-    "name": "Bacon",
-    "price": "3.5",
-    "description": "Breakfast!"
-  },
+    {
+      "id": "4",
+      "name": "Bacon",
+      "price": "3.50",
+      "description": "Breakfast!"
+    },
 
-  "walnut": {
-    "id": "6",
-    "name": "Walnut",
-    "price": "3.5",
-    "description": "Walnuts! Yay! Not really."
-  },
+    {
+      "id": "5",
+      "name": "Walnut",
+      "price": "3.50",
+      "description": "Walnuts! Yay! Not really."
+    },
 
-  "pumpkin": {
-    "id": "7",
-    "name": "Pumpkin Spice",
-    "price": "3.5",
-    "description": "A Halloween special brought back by popular demand."
-  },
+    {
+      "id": "6",
+      "name": "Pumpkin Spice",
+      "price": "3.50",
+      "description": "A Halloween special brought back by popular demand."
+    },
 
-  "caramel": {
-    "id": "8",
-    "name": "Caramel Pecan",
-    "price": "3.5",
-    "description": "For those with a sweeth tooth. Don't mind the stickiness."
-  },
+    {
+      "id": "7",
+      "name": "Caramel Pecan",
+      "price": "3.50",
+      "description": "For those with a sweeth tooth. Don't mind the stickiness."
+    },
 
-  "carrot": {
-    "id": "9",
-    "name": "Carrot Cake",
-    "price": "3.5",
-    "description": "Deconstructing a carrot cake into a roll!"
-  },
+    {
+      "id": "8",
+      "name": "Carrot Cake",
+      "price": "3.50",
+      "description": "Deconstructing a carrot cake into a roll!"
+    },
 
-  "ofb": {
-    "id": "10",
-    "name": "Old-fashioned Buttermilk",
-    "price": "3.5",
-    "description": "Old-fashioned rolls are the best."
-  },
+    {
+      "id": "9",
+      "name": "Old-fashioned Buttermilk",
+      "price": "3.50",
+      "description": "Old-fashioned rolls are the best."
+    },
 
-  "strawberry": {
-    "id": "11",
-    "name": "Strawberry Rhubarb",
-    "price": "3.5",
-    "description": "An unhappy marriage, but tasty."
-  },
+    {
+      "id": "10",
+      "name": "Strawberry Rhubarb",
+      "price": "3.50",
+      "description": "An unhappy marriage, but tasty."
+    },
 
-  "birthday": {
-    "id": "12",
-    "name": "Birthday Cake",
-    "price": "4",
-    "description": "One year older, one more roll."
-  },
+    {
+      "id": "11",
+      "name": "Birthday Cake",
+      "price": "4.00",
+      "description": "One year older, one more roll."
+    },
 
-  "lemon": {
-    "id": "13",
-    "name": "Lemon Lavender",
-    "price": "4",
-    "description": "An edible version of your essential oils."
-  },
+    {
+      "id": "12",
+      "name": "Lemon Lavender",
+      "price": "4.00",
+      "description": "An edible version of your essential oils."
+    },
 
-  "cranberry": {
-    "id": "14",
-    "name": "Cranberry",
-    "price": "4",
-    "description": "Made with local harvest."
-  },
+    {
+      "id": "13",
+      "name": "Cranberry",
+      "price": "4.00",
+      "description": "Made with local harvest."
+    },
 
-  "blackberry": {
-    "id": "15",
-    "name": "Blackberry",
-    "price": "4",
-    "description": "The best flavour is black."
-  }
+    {
+      "id": "14",
+      "name": "Blackberry",
+      "price": "4.00",
+      "description": "The best flavour is black."
+    }
+  ]
 
 }
